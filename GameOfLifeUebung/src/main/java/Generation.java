@@ -19,12 +19,12 @@ public class Generation {
 
 		for (int i = 0; i < cells.length; i++) {
 			for (int j = 0; j < cells[0].length; j++) {
-				neighbours = countNeighbours(i, j, cells);
+				neighbours = countNeighbours(i, j, newCells);
 				
-				newCells[i][j].nextState(neighbours);
+				cells[i][j].nextState(neighbours);
 			}
 		}
-		cells=newCells;
+		
 	}
 	
 	private int countNeighbours(int i, int j, Cell[][] ncells) {
