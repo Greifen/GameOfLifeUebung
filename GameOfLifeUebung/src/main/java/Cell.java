@@ -7,7 +7,7 @@ public class Cell {
 		this.cellstate = cellstate;
 	}
 
-	public void updateState(int neighbours) {
+	public void nextState(int neighbours) {
 		if (cellstate == CellState.ALIVE) {
 			//underpopulation and overcrowding
             if (neighbours < 2 || neighbours > 3) {
