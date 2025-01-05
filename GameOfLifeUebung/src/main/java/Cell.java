@@ -12,7 +12,7 @@ public class Cell {
 		{
 			cellstate=CellState.DEAD;
 		}
-		else if(cellstate==cellstate.DEAD && neighbour==3) {
+		else if(cellstate==CellState.DEAD && neighbour==3) {
 			cellstate=CellState.ALIVE;
 		}
 	}
