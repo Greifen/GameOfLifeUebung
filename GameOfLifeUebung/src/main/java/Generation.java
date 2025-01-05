@@ -9,25 +9,24 @@ public class Generation {
 
 	public void nextGeneration() {
 		int neighbours;
-
-		for (int i = 0; i < cells.length; i++) {
-			for (int j = 0; j < cells[0].length; j++) {
-
-			}
-		}
-
 		Cell[][] newCells = new Cell[cells.length][cells[0].length];
 		for (int i = 0; i < cells.length; i++) {
 			for (int j = 0; j < cells[0].length; j++) {
-				neighbours = countNeighbours(i, j);
 				newCells[i][j] = new Cell(cells[i][j].getState());
-				newCells[i][j].nextState(neighbours);
 			}
 		}
-		cells=newCells;
+
+
+		for (int i = 0; i < cells.length; i++) {
+			for (int j = 0; j < cells[0].length; j++) {
+				neighbours = countNeighbours(i, j, newCells);
+				
+				cells[i][j].nextState(neighbours);
+			}
+		}
 	}
 	
-	private int countNeighbours(int i, int j) {
+	private int countNeighbours(int i, int j, Cell[][] cells) {
 		int neighbours = 0;
 		for (int row = i - 1; row <= i + 1; row++) {
 			for (int col = j - 1; col <= j + 1; col++) {
