@@ -42,7 +42,7 @@ class GenerationTest {
 		Cell[][] initialCells = {{X}};
 		Generation initialGeneration = new Generation(initialCells);
 		initialGeneration.nextGeneration();
-		Cell[][] expectedCells = {{X}};
+		Cell[][] expectedCells = {{O}};
 		Generation expectedGeneration = new Generation(expectedCells);
 		assertArrayEquals(expectedGeneration.getStates(), initialGeneration.getStates());
 	}
