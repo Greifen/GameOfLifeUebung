@@ -19,19 +19,20 @@ public class Generation {
 
 		for (int i = 0; i < cells.length; i++) {
 			for (int j = 0; j < cells[0].length; j++) {
-				neighbours = countNeighbours(i, j, newCells);
+				neighbours = countNeighbours(i, j, cells);
 				
-				cells[i][j].nextState(neighbours);
+				newCells[i][j].nextState(neighbours);
 			}
 		}
+		cells=newCells;
 	}
 	
-	private int countNeighbours(int i, int j, Cell[][] cells) {
+	private int countNeighbours(int i, int j, Cell[][] ncells) {
 		int neighbours = 0;
 		for (int row = i - 1; row <= i + 1; row++) {
 			for (int col = j - 1; col <= j + 1; col++) {
-				if (row >= 0 && row < cells.length && col >= 0 && col < cells[0].length && !(row == i && col == j)
-						&& cells[row][col].getState() == CellState.ALIVE) {
+				if (row >= 0 && row < ncells.length && col >= 0 && col < ncells[0].length && !(row == i && col == j)
+						&& ncells[row][col].getState() == CellState.ALIVE) {
 					neighbours++;
 				}
 			}
