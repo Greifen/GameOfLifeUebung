@@ -27,7 +27,7 @@ class GenerationTest {
 	void tearDown() throws Exception {
 	}
 
-	@Test
+/*	@Test
 	void testNextGenerationDEATH() {
 		Cell[][] initialCells = {{O}};
 		Generation initialGeneration = new Generation(initialCells);
@@ -64,5 +64,22 @@ class GenerationTest {
 		Generation expectedGeneration = new Generation(expectedCells);
 		assertArrayEquals(expectedGeneration.getStates(), initialGeneration.getStates());
 	}
-
+*/
+	@Test
+	void testNextGeneration3x3() {
+		Cell[][] initialCells = {
+				{new Cell(CellState.ALIVE),new Cell(CellState.DEAD),new Cell(CellState.DEAD)},
+				{new Cell(CellState.ALIVE),new Cell(CellState.ALIVE),new Cell(CellState.DEAD)},
+				{new Cell(CellState.ALIVE),new Cell(CellState.ALIVE),new Cell(CellState.DEAD)},
+				};
+		Generation initialGeneration = new Generation(initialCells);
+		initialGeneration.nextGeneration();
+		Cell[][] expectedCells = {
+				{new Cell(CellState.ALIVE),new Cell(CellState.ALIVE),new Cell(CellState.DEAD)},
+				{new Cell(CellState.DEAD),new Cell(CellState.DEAD),new Cell(CellState.DEAD)},
+				{new Cell(CellState.ALIVE),new Cell(CellState.ALIVE),new Cell(CellState.DEAD)},
+				};
+		Generation expectedGeneration = new Generation(expectedCells);
+		assertArrayEquals(expectedGeneration.getStates(), initialGeneration.getStates());
+	}
 }
